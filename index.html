@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="index, follow"> 
+<meta name="googlebot" content="index, follow"> 
+<meta name="bingbot" content="index, follow">
+    <title>Film Camp — Modern Filmmaking for Kids & Teens</title>
+    <!-- Google Fonts + minimal reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #111;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f3f3f3;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            color: white;
+            padding: 0.75rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.2s ease;
+            border: 1px solid #111;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #111;
+            border: 1px solid #ddd;
+        }
+
+        .btn-outline:hover {
+            background: #f5f5f5;
+            border-color: #aaa;
+        }
+
+        .btn:hover {
+            background: #2c2c2c;
+            transform: translateY(-2px);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fafafa;
+            border-radius: 28px;
+            padding: 1.8rem;
+            transition: 0.2s;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            background: #fff;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+        }
+
+        .map-card {
+            background: #fefefe;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: 0.2s;
+        }
+
+        .map-card iframe {
+            width: 100%;
+            height: 240px;
+            border: 0;
+            display: block;
+        }
+
+        .map-card-content {
+            padding: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            background: #111;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-icon:hover {
+            background: #333;
+            transform: scale(1.02);
+        }
+
+        .footer {
+            background: #fafafa;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: #2c2c2c;
+        }
+
+        .article-content h3 {
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        .article-content ul, .article-content .checklist {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .highlight {
+            background: #f4f4f4;
+            padding: 1.5rem;
+            border-radius: 28px;
+            margin: 2rem 0;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .gallery-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 24px;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: #eaeaea;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .service-tag {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #111;
+            transition: 0.1s;
+        }
+
+        .service-tag:hover {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION – minimal modern -->
+<div class="container" style="padding-top: 4rem; padding-bottom: 2rem;">
+    <div style="max-width: 780px;">
+        <span class="badge">🎬 since 2015 · project-based learning</span>
+        <h1 style="font-size: 3.2rem; line-height: 1.2; margin-bottom: 1.2rem;">Film Camp<br> where stories take the lead.</h1>
+        <p style="font-size: 1.2rem; color: #2b2b2b; margin-bottom: 1.8rem;">Weekend classes, summer camps & seasonal workshops for kids and teens. Write, direct, edit — and create real films.</p>
+        <div class="btn-group">
+            <a href="https://film.camp/enrollment" class="btn" target="_blank">🎟️ Enroll today →</a>
+            <a href="https://film.camp/about" class="btn btn-outline" target="_blank">📖 Our story</a>
+        </div>
+    </div>
+</div>
+
+<!-- CORE LINKS + SERVICES (cards) -->
+<div class="section">
+    <div class="container">
+        <h2>📍 explore programs by location</h2>
+        <p style="margin-bottom: 2rem; color: #444;">Hands-on filmmaking in Austin, Los Angeles & San Francisco.</p>
+        <div class="grid-2">
+            <!-- Austin card -->
+            <div class="card">
+                <h3>🎥 Austin</h3>
+                <div class="service-list">
+                    <a href="https://film.camp/film-classes/austin" class="service-tag" target="_blank">Film Classes</a>
+                    <a href="https://film.camp/summer-camps-austin" class="service-tag" target="_blank">Summer Camp</a>
+                    <a href="https://film.camp/thanksgiving-camps-austin" class="service-tag" target="_blank">Thanksgiving Camp</a>
+                    <a href="https://film.camp/spring-break-camp-austin" class="service-tag" target="_blank">Spring Break</a>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://film.camp/spring-break-camp-austin" target="_blank" style="font-weight: 500;">📅 Book now ➜</a>
+                </div>
+            </div>
+            <!-- Los Angeles card -->
+            <div class="card">
+                <h3>🌴 Los Angeles</h3>
+                <div class="service-list">
+                    <a href="https://film.camp/film-classes/los-angeles" class="service-tag" target="_blank">Film Classes</a>
+                    <a href="https://film.camp/summer-camps-los-angeles" class="service-tag" target="_blank">Summer Camp</a>
+                    <a href="https://film.camp/thanksgiving-camps-los-angeles" class="service-tag" target="_blank">Thanksgiving Camp</a>
+                    <a href="https://film.camp/spring-break-camp-los-angeles" class="service-tag" target="_blank">Spring Break</a>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://film.camp/spring-break-camp-los-angeles" target="_blank" style="font-weight: 500;">📅 Book now ➜</a>
+                </div>
+            </div>
+            <!-- San Francisco card -->
+            <div class="card">
+                <h3>🌁 San Francisco</h3>
+                <div class="service-list">
+                    <a href="https://film.camp/film-classes/san-francisco" class="service-tag" target="_blank">Film Classes</a>
+                    <a href="https://film.camp/summer-camps-san-francisco" class="service-tag" target="_blank">Summer Camp</a>
+                    <a href="https://film.camp/thanksgiving-camps-san-francisco" class="service-tag" target="_blank">Thanksgiving Camp</a>
+                    <a href="https://film.camp/spring-break-camp-san-francisco" class="service-tag" target="_blank">Spring Break</a>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <a href="https://film.camp/spring-break-camp-san-francisco" target="_blank" style="font-weight: 500;">📅 Book now ➜</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-start;">
+            <a href="https://film.camp/showcase" class="btn btn-outline" target="_blank">🎞️ Student showcase</a>
+            <a href="https://film.camp/enrollment" class="btn btn-outline" target="_blank">📋 Enrollment info</a>
+            <a href="https://film.camp/contact-us" class="btn btn-outline" target="_blank">✉️ Contact us</a>
+        </div>
+    </div>
+</div>
+
+<!-- IMAGE GALLERY (modern minimal) -->
+<div class="section">
+    <div class="container">
+        <h2 style="text-align: center;">✨ frames of creativity</h2>
+        <div class="image-gallery">
+            <img class="gallery-img" src="https://cdn.prod.website-files.com/67d30a467f2b0899aa3d5ecc/67e7dd89888d584dc6e7c712_DRAMA-p-1080.avif" alt="film camp drama">
+            <img class="gallery-img" src="https://cdn.prod.website-files.com/67d30a467f2b0899aa3d5ecc/67e7d4bddd2c9090c027f614_SCI-FI_JPEG-p-1080.avif" alt="sci-fi filmmaking">
+            <img class="gallery-img" src="https://cdn.prod.website-files.com/67d30a467f2b0899aa3d5ecc/67e7d5277974f8a933c56108_Untitled%20design%20(6)-p-1080.avif" alt="kids on set">
+            <img class="gallery-img" src="https://cdn.prod.website-files.com/67d30a467f2b0899aa3d5ecc/67e7d7602378bc60f14faf7b_Copy%20of%20Copy%20of%20WORKOUTS-p-1080.avif" alt="collaboration">
+            <img class="gallery-img" src="https://cdn.prod.website-files.com/67d30a467f2b0899aa3d5ecc/67e7d79210ab90a96900511e_Copy%20of%20WORKOUTS%20(1)-p-1080.avif" alt="camera action">
+        </div>
+    </div>
+</div>
+
+<!-- FULL ARTICLE + EMBEDS (Long-form content from description) -->
+<div class="section">
+    <div class="container article-content">
+        <h2>The Ultimate Filmmaking Experience for Kids and Teens</h2>
+        <p>Every child has a unique imagination. Some children love telling stories. Others enjoy acting, creating videos, drawing characters, or dreaming up exciting adventures. In today's world, where digital media plays a central role in communication and entertainment, filmmaking has become one of the most engaging ways for young people to express themselves creatively.</p>
+        <p>Filmmaking combines storytelling, technology, collaboration, leadership, problem-solving, and artistic expression into a single experience. It encourages children to think creatively while learning practical skills that can benefit them throughout their lives.</p>
+        <p>This is why more families are discovering Film Camp. Film Camp provides young creators with the opportunity to learn how movies are made while actively participating in every stage of the filmmaking process. Students don't simply watch educational videos or listen to lectures. They create, collaborate, and bring their own ideas to life.</p>
+        <p>Through programs such as Weekend Film Classes, immersive Summer Camps, and seasonal Thanksgiving Camps, Film Camp offers experiences that help students build confidence, develop communication skills, and discover their creative potential. Whether a child dreams of becoming a filmmaker, actor, writer, content creator, or simply wants to try something new, Film Camp provides an inspiring environment where learning and creativity work together.</p>
+
+        <h3>Why Creative Education Matters More Than Ever</h3>
+        <p>The world is changing rapidly. Today's children are growing up in an environment filled with digital content. As technology continues to evolve, creative thinking has become one of the most valuable skills a young person can develop. Creative education helps students: communicate effectively, think independently, solve problems creatively, adapt to change, collaborate with others, build confidence, and express ideas clearly.</p>
+        
+        <h3>What Makes Film Camp Different?</h3>
+        <p>Many camps focus on recreation. Others focus on academics. Film Camp successfully combines creativity, education, and hands-on learning into a single experience. Students are not passive participants. They actively engage in the creative process from beginning to end. Throughout their experience, they may develop original story ideas, write scripts, create characters, plan productions, learn camera techniques, direct scenes, perform on camera, edit footage, and present completed projects. This project-based learning model keeps students motivated while helping them develop practical skills.</p>
+        
+        <div class="highlight">
+            <p style="font-weight: 600; margin-bottom: 0.5rem;">🎬 Benefits of learning filmmaking at a young age:</p>
+            <ul style="margin-left: 1.2rem;">
+                <li>Communication & leadership skills</li>
+                <li>Confidence building through creative expression</li>
+                <li>Teamwork & problem-solving</li>
+                <li>Technical fluency with digital tools</li>
+                <li>Storytelling & critical thinking</li>
+            </ul>
+        </div>
+
+        <h3>Weekend Film Classes · year-round growth</h3>
+        <p><a href="https://film.camp/film-classes/austin" target="_blank">Austin Film Classes</a>, <a href="https://film.camp/film-classes/los-angeles" target="_blank">Los Angeles Film Classes</a> and <a href="https://film.camp/film-classes/san-francisco" target="_blank">San Francisco Film Classes</a> introduce screenwriting, directing, acting, cinematography and editing. Perfect for ongoing creative development.</p>
+        
+        <h3>Summer Camps & seasonal adventures</h3>
+        <p><a href="https://film.camp/summer-camps-austin" target="_blank">Austin Summer Film Camp</a>, <a href="https://film.camp/summer-camps-los-angeles" target="_blank">Los Angeles Summer Film Camp</a> and <a href="https://film.camp/summer-camps-san-francisco" target="_blank">San Francisco Summer Film Camp</a> give students the ultimate immersive movie-making experience. During Thanksgiving breaks, <a href="https://film.camp/thanksgiving-camps-austin" target="_blank">Austin Thanksgiving Camp</a>, <a href="https://film.camp/thanksgiving-camps-los-angeles" target="_blank">LA Thanksgiving Camp</a> and <a href="https://film.camp/thanksgiving-camps-san-francisco" target="_blank">SF Thanksgiving Camp</a> provide creative storytelling during school holidays.</p>
+        
+        <p>Parents love Film Camp because it combines educational value with genuine excitement. Children gain confidence, stronger teamwork abilities, and real-world media skills. Whether your child dreams of being a director or just wants to try something new, Film Camp delivers an unforgettable journey.</p>
+        
+        <div class="highlight">
+            <p><strong>Ready to help your child discover their creative potential?</strong> Every great filmmaker starts with an idea. Film Camp helps young creators transform ideas into reality while building confidence, communication skills, and lifelong memories.</p>
+            <div class="btn-group" style="margin-top: 1rem;">
+                <a href="https://film.camp/enrollment" class="btn" target="_blank">Enroll today →</a>
+                <a href="https://film.camp/about" class="btn-outline btn" target="_blank">Learn about us</a>
+            </div>
+        </div>
+        <p><em>Spaces are limited, and many programs fill quickly. Give your child the opportunity to experience the excitement of filmmaking and discover the power of storytelling through Film Camp.</em></p>
+    </div>
+</div>
+
+<!-- MAP SECTION + EMBEDDED LOCATIONS & BOOK NOW -->
+<div class="section">
+    <div class="container">
+        <h2 style="margin-bottom: 0.5rem;">📍 find our campuses</h2>
+        <p style="margin-bottom: 2rem;">Visit us in Austin, Los Angeles or San Francisco — see the map and reserve a spot.</p>
+        <div class="grid-2" style="gap: 2rem;">
+            <!-- AUSTIN MAP CARD -->
+            <div class="map-card">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.185173505312!2d-97.781025!3d30.3740993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e94f7e2e2cbd941%3A0xc053482077f8eb1a!2sFilm%20Camp!5e0!3m2!1sen!2sbd!4v1780223246216!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-card-content">
+                    <h3>Austin · Film Camp</h3>
+                    <a href="https://film.camp/spring-break-camp-austin" target="_blank" style="font-weight: 600; text-decoration: none;">Book Now ➜ Spring Break Austin</a>
+                </div>
+            </div>
+            <!-- LOS ANGELES MAP CARD -->
+            <div class="map-card">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.7551259439288!2d-118.2587025!3d34.1270182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25285ebdbf27c9b7%3A0xa6a09394b694d9cf!2sFilm%20Camp!5e0!3m2!1sen!2sbd!4v1780223265193!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-card-content">
+                    <h3>Los Angeles · Film Camp</h3>
+                    <a href="https://film.camp/spring-break-camp-los-angeles" target="_blank" style="font-weight: 600; text-decoration: none;">Book Now ➜ Spring Break LA</a>
+                </div>
+            </div>
+            <!-- SAN FRANCISCO MAP CARD -->
+            <div class="map-card">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.287092336586!2d-122.4318139!3d37.80674390000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae297aff407bd%3A0x3d1c591cb9a37501!2sFilm%20Camp!5e0!3m2!1sen!2sbd!4v1780223295243!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-card-content">
+                    <h3>San Francisco · Film Camp</h3>
+                    <a href="https://film.camp/spring-break-camp-san-francisco" target="_blank" style="font-weight: 600; text-decoration: none;">Book Now ➜ Spring Break SF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT SECTION + SOCIAL + EMBEDDED LINKS (full contact) -->
+<div class="section" id="contact">
+    <div class="container">
+        <div style="max-width: 780px; margin: 0 auto; text-align: center;">
+            <h2>📬 start your film journey</h2>
+            <p style="margin-bottom: 1rem;">Got questions? Reach out or follow us for behind-the-scenes, student work and camp updates.</p>
+            <div class="social-links" style="justify-content: center;">
+                <a href="https://www.facebook.com/filmcamps" class="social-icon" target="_blank" style="background: #1877f2;">📘</a>
+                <a href="https://www.youtube.com/@film_camp" class="social-icon" target="_blank" style="background: #ff0000;">▶️</a>
+                <a href="https://www.instagram.com/filmcamp.us" class="social-icon" target="_blank" style="background: #c13584;">📸</a>
+                <a href="https://film.camp/contact-us" class="social-icon" target="_blank" style="background: #000;">✉️</a>
+            </div>
+            <div style="margin: 2rem 0 1rem;">
+                <a href="https://film.camp/contact-us" class="btn" target="_blank" style="background: #111;">Contact us directly →</a>
+            </div>
+            <hr style="max-width: 100px; margin: 2rem auto;">
+            <p style="font-size: 0.9rem;">📍 Weekend classes · Summer camps · Thanksgiving & Spring camps   |   <a href="https://film.camp" target="_blank">film.camp</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER with all main website links (provided) -->
+<div class="footer">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+            <a href="https://film.camp/" style="color: #111; text-decoration: none;">🏠 Home</a>
+            <a href="https://film.camp/showcase" style="color: #111; text-decoration: none;">🎬 Showcase</a>
+            <a href="https://film.camp/enrollment" style="color: #111; text-decoration: none;">📝 Enrollment</a>
+            <a href="https://film.camp/about" style="color: #111; text-decoration: none;">📖 About</a>
+            <a href="https://film.camp/contact-us" style="color: #111; text-decoration: none;">✉️ Contact</a>
+        </div>
+        <div style="font-size: 0.8rem; color: #666;">
+            © 2025 Film Camp — inspire creativity, confidence & future-ready skills. All rights reserved.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
